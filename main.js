@@ -1,25 +1,29 @@
-const myForm = document.querySelector('#my-form');
-const nameInput = document.querySelector('#name');
-const emialInput = document.querySelector('#email');
-const msg = document.querySelector('.msg');
-const userList = document.querySelector('#users');
+// DOM MANIPULATION
 
-myForm.addEventListener('submit', onSubmit);
+// GetElementById()
 
-function onSubmit(e) {
-    e.preventDefault();
+const title = document.getElementById('main-heading');
 
-    if(nameInput.value === ''|| emialInput.value === '') {
-        msg.classList.add('error')
-        msg.innerHTML = 'Please enter all fields';
-        setTimeout(() => msg.remove(), 3000)
-    }
-    else{
-        const li = document.createElement('li');
-        li.appendChild(document.createTextNode(`${nameInput.value} : ${emialInput.value}`));
-        userList.appendChild(li);
+console.log(title);
 
-        nameInput.value = '';
-        emialInput.value = '';
-    }
-}
+// GetElementByClassName()
+
+//const listItem = document.getElementsByClassName('list-items');
+
+// GetElementByTagName()
+
+const listItem = document.getElementsByTagName('li');
+
+console.log(listItem);
+
+// querySelector()
+
+//const container = document.querySelector('div');
+
+//console.log(container);
+
+// querySelectorAll()
+
+const contianer = document.querySelectorAll('div');
+
+console.log(contianer);
