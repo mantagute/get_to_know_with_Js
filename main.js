@@ -1,29 +1,13 @@
 // DOM MANIPULATION
 
-// GetElementById()
+// const title = document.querySelector('#main-heading');
 
-const title = document.getElementById('main-heading');
+// title.style.color = 'red'
 
-console.log(title);
+const listItems = document.querySelectorAll('.list-items');
 
-// GetElementByClassName()
+for (i = 0; i < listItems.length ; i++){
+    listItems[i].style.color = 'red'
+}
 
-//const listItem = document.getElementsByClassName('list-items');
-
-// GetElementByTagName()
-
-const listItem = document.getElementsByTagName('li');
-
-console.log(listItem);
-
-// querySelector()
-
-//const container = document.querySelector('div');
-
-//console.log(container);
-
-// querySelectorAll()
-
-const contianer = document.querySelectorAll('div');
-
-console.log(contianer);
+console.log(listItems);
