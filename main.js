@@ -1,24 +1,28 @@
 // DOM MANIPULATION
 
-// Traverse the DOM
+// Event Listeners
 
-//Parent Node Traversal
-
-let ul = document.querySelector('ul');
+//element.addEventListener("", function());
 
 
-// console.log(ul.parentNode.parentNode);
-// console.log(ul.parentElement.parentElement);
+const buttonTwo = document.querySelector('.btn-2')
 
-// const html = document.documentElement;
+function alertBtn () {
+    alert('I also love Js');
+}
 
-// console.log(html.parentNode)
-// console.log(html.parentElement)
+buttonTwo.addEventListener('click', alertBtn);
 
-// console.log(ul.childNodes);
-// console.log(ul.firstChild);
-// console.log(ul.lastChild);
 
-// ul.childNodes[1].style.backgroundColor = 'blue'
+//Mouseover
 
-console.log(ul.children)
+const newBackgroundColor = document.querySelector('.box-3')
+
+function changeBgColor() {
+    newBackgroundColor.style.backgroundColor = 'red'
+}
+
+newBackgroundColor.addEventListener('mouseover', changeBgColor)
+
+
+
