@@ -1,40 +1,24 @@
 // DOM MANIPULATION
 
-// const title = document.querySelector('#main-heading');
+// Traverse the DOM
 
-// title.style.color = 'red'
+//Parent Node Traversal
 
-// const listItems = document.querySelectorAll('.list-items');
+let ul = document.querySelector('ul');
 
-// for (i = 0; i < listItems.length ; i++){
-//     listItems[i].style.color = 'red'
-// }
 
-// console.log(listItems);
+// console.log(ul.parentNode.parentNode);
+// console.log(ul.parentElement.parentElement);
 
-// Creating Element
-const ul = document.querySelector('ul');
-const li = document.createElement('li');
+// const html = document.documentElement;
 
-// Adding Element
+// console.log(html.parentNode)
+// console.log(html.parentElement)
 
-ul.append(li);
+// console.log(ul.childNodes);
+// console.log(ul.firstChild);
+// console.log(ul.lastChild);
 
-// Modifying the text
+// ul.childNodes[1].style.backgroundColor = 'blue'
 
-li.innerText = 'X-men';
-
-// Modifying Attributes & Classes  
-
-// li.setAttribute('id', 'main-heading');
-// li.removeAttribute('id');
-
-// const title = document.querySelector('#main-heading');
-
-// console.log(title.getAttribute('id'))
-
-li.classList.add('list-items')
-
-console.log(li.classList.contains('list-items'))
-
-li.remove()
+console.log(ul.children)
