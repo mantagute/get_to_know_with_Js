@@ -1,39 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* RESET */
 * {
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
 }
 
 body {
     align-items: center;
-    background-image: linear-gradient(to bottom,#333, rgba(167, 167, 169, 0.35));
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-ul {
-    border-radius: 15px;
-    border: 5px solid white;
+    background: url(img/quote_3840x2160.jpg) no-repeat center/ cover; 
     color: white;
     display: flex;
-    flex-flow: column;
-    font-size: 30px;
-    gap: 20px;
-    list-style: none;
-    padding: 20px;
-}
-
-li {
-    background-color: transparent;
-    border: 1px solid white;
-    padding: 10px;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
     text-align: center;
 }
 
-li:hover {
+.header {
+    background-color: #333;
+    border-radius: 10px;
+    border: solid 2px #fff;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 20px; 
+    padding: 10px 20px;
+    padding: 5px;
+    width: auto; 
+}
+
+.main_content {
     background-color: white;
-    color: #333;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+    color: #333; 
+    min-height: 300px; 
+    padding: 50px 40px;
+    width: 50%;
+}
+
+#text_area {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-bottom: 20px; 
+}
+
+.person {
+    color: rgba(215, 2, 2, 0.844);
+    font-size: 1.6rem;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.new_quote {
+    background-color: #333;
+    border-radius: 5px;
+    border: none; 
+    color: white;
+    cursor: pointer; 
+    font-size: 1.2rem;
+    margin-top: 20px;
+    padding: 10px 15px;
+}
+
+.new_quote:hover {
+    background-color: #555; 
 }
