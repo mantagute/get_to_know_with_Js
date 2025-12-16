@@ -54,7 +54,7 @@ body {
     text-transform: uppercase;
 }
 
-.new_quote {
+#new_quote {
     background-color: #333;
     border-radius: 5px;
     border: none; 
@@ -65,6 +65,6 @@ body {
     padding: 10px 15px;
 }
 
-.new_quote:hover {
+#new_quote:hover {
     background-color: #555; 
 }
