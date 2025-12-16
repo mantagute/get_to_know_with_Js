@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
 /* RESET */
 * {
     box-sizing: border-box;
@@ -9,62 +7,83 @@
 }
 
 body {
-    align-items: center;
-    background: url(img/quote_3840x2160.jpg) no-repeat center/ cover; 
-    color: white;
-    display: flex;
-    flex-direction: column;
+    background: url(img/hide_and_seek.jpg) no-repeat center/ cover;
     height: 100vh;
-    justify-content: center;
-    text-align: center;
+    position: relative;
 }
 
-.header {
-    background-color: #333;
+#open_button {
+    background: transparent;
     border-radius: 10px;
-    border: solid 2px #fff;
+    border: 2px solid whitesmoke;
+    box-shadow: 0 0 3px black;
     color: white;
-    font-size: 1.8rem;
-    margin-bottom: 20px; 
-    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 2rem;
+    height: 80px;
+    left: 10%;
     padding: 5px;
-    width: auto; 
+    position: absolute;
+    top: 70%;
+    transition: .5s;
+    width: 350px;
 }
 
-.main_content {
+#open_button:hover {
     background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5); 
-    color: #333; 
-    min-height: 300px; 
-    padding: 50px 40px;
-    width: 50%;
+    color: black;
 }
 
-#text_area {
-    font-size: 1.5rem;
-    line-height: 1.5;
-    margin-bottom: 20px; 
+#modal_container {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3); 
+    display: none; 
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
 }
 
-.person {
-    color: rgba(215, 2, 2, 0.844);
-    font-size: 1.6rem;
-    margin-top: 20px;
-    text-transform: uppercase;
+
+.modal_content {
+    align-items: center;
+    animation-duration: 0.4s;
+    animation-name: animateModal;
+    background-color: white; 
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column; 
+    height: 100px;
+    justify-content: center;
+    position: relative; 
+    text-align: center;
+    width: 200px;
 }
 
-#new_quote {
-    background-color: #333;
-    border-radius: 5px;
-    border: none; 
-    color: white;
-    cursor: pointer; 
-    font-size: 1.2rem;
-    margin-top: 20px;
-    padding: 10px 15px;
+#close_button {
+    background: transparent;
+    border: none;
+    color: green;
+    cursor: pointer;
+    font-size: 3rem;
+    position: absolute;
+    right: 5px; 
+    top: 0px;   
+    line-height: 2rem; 
+    transition: 0.3s;
 }
 
-#new_quote:hover {
-    background-color: #555; 
+@keyframes animateModal {
+    from {
+        transform: translateY(-400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

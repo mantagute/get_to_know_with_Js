@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini-Project: Quote Generator</title>
+    <title>Modal</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header>
-        <h2 class="header">JavaScript Quote Generator</h2>
-    </header>
-    <main class="main_content">
-        <p id="text_area">
-            <span class="quote">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sed omnis cupiditate voluptas nihil numquam nulla, placeat amet. Quisquam unde vitae itaque possimus praesentium amet ipsam provident, ea debitis. Est?</span>
-        </p>
-        <p class="person">Abraham Lincoln</p>
-        <button id="new_quote">New Quote</button>
+    <main>
+        <button id="open_button">
+            <p>Where's Our Modal?</p>
+        </button>
+        
+        <div id="modal_container">
+            <div class="modal_content">
+                <p>Here I am!</p>
+                <button id="close_button">&times;</button>
+            </div>
+        </div>
     </main>
 
     <script src="main.js"></script>
