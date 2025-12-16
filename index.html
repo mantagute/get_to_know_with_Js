@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ:</title>
+    <title>Stop Watch</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
-    <main class="accordion">
-        <h2 class="accordion-title">Frequentely Asked Questions</h2>
-        <section class="content-container">
-            <p class="question">What is the return Policy</p>
-            <p class="answer">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In, dicta incidunt repudiandae aut ipsam magnam similique, quasi itaque natus odit animi id dolor laudantium nulla fugiat molestiae. Rerum, dolorem corrupti.</p>
+    <main class="container">
+        <section id="timer">
+            00:00:00
         </section>
-        <section class="content-container">
-            <p class="question">What is the return Policy</p>
-            <p class="answer">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In, dicta incidunt repudiandae aut ipsam magnam similique, quasi itaque natus odit animi id dolor laudantium nulla fugiat molestiae. Rerum, dolorem corrupti.</p>
-        </section>
-        <section class="content-container">
-            <p class="question">What is the return Policy</p>
-            <p class="answer">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In, dicta incidunt repudiandae aut ipsam magnam similique, quasi itaque natus odit animi id dolor laudantium nulla fugiat molestiae. Rerum, dolorem corrupti.</p>
+        <section class="buttons">
+            <button id="startStopBtn">
+                <i class="fa-solid fa-play" id="play"></i>
+            </button>
+            <button id="resetBtn">
+                <i class="fa-solid fa-arrow-rotate-left" id="reset"></i>
+            </button>
         </section>
     </main>
     <script src="main.js"></script>
