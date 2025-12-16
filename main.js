@@ -1,28 +1,18 @@
 // DOM MANIPULATION
+const revealBtn = document.querySelector('.reveal-btn');
+const hiddenContent = document.querySelector('.hidden-content');
 
-// Event Listeners
-
-//element.addEventListener("", function());
-
-
-const buttonTwo = document.querySelector('.btn-2')
-
-function alertBtn () {
-    alert('I also love Js');
+function revealContent() {
+    if (hiddenContent.classList.contains('show')) {
+        hiddenContent.classList.remove('show'); 
+        revealBtn.classList.remove('active');   
+    } else {
+        hiddenContent.classList.add('show');   
+        revealBtn.classList.add('active'); 
+    }
 }
 
-buttonTwo.addEventListener('click', alertBtn);
-
-
-//Mouseover
-
-const newBackgroundColor = document.querySelector('.box-3')
-
-function changeBgColor() {
-    newBackgroundColor.style.backgroundColor = 'red'
-}
-
-newBackgroundColor.addEventListener('mouseover', changeBgColor)
+revealBtn.addEventListener('click', revealContent);
 
 
 
