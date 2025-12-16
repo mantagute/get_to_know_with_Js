@@ -1,26 +1,20 @@
-//DOM MANIPULATION
+// DOM MANIPULATION
 
-//EVENT PROPAGATION
+//EVENT DELEGATION
 
-window.addEventListener('click', function() {
-    console.log('Window');
-}, false);
+document.querySelector('#sports').addEventListener('click', function(e){
+    console.log(e.target.getAttribute('id') + ' is clicked');
+    const target = e.target;
 
-document.addEventListener('click', function() {
-    console.log('Document')
-}, false);
+    if (target.matches('li')){
+        target.style.backgroundColor = 'green';
+    }
+});
 
-document.querySelector('.div2').addEventListener('click', function(){
-    // e.stopPropagation();
-    console.log('DIV 2');
-}, false);
+const sports = document.querySelector('#sports');
+const newSport = document.createElement('li');
 
-document.querySelector('.div1').addEventListener('click', function(){
-    console.log('DIV 1')
-}, {once: true});
+newSport.innerText = 'rugby';
+newSport.setAttribute('id', 'rugby');
 
-document.querySelector('button').addEventListener('click', function(e){
-    console.log(e.target.innerText = 'clicked');
-}, false);
-
-
+sports.appendChild(newSport);
