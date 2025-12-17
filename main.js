@@ -8,6 +8,7 @@ addTask.addEventListener('click', function(){
         alert('Please Enter a Task');
         return;
     }
+
     let task = document.createElement('div'); 
     task.classList.add('task');
 
@@ -26,6 +27,13 @@ addTask.addEventListener('click', function(){
     task.appendChild(deleteButton);
 
     taskContainer.appendChild(task);
-
     inputTask.value = "";
+
+    checkButton.addEventListener('click', function(){
+        li.style.textDecoration = li.style.textDecoration === 'line-through' ? 'none' : 'line-through';
+        li.style.color = li.style.textDecoration === 'line-through' ? 'gray' : 'black';
+    });
+    deleteButton.addEventListener('click', function(e){
+        e.target.closest('.task').remove();
+    });
 });
