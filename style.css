@@ -7,61 +7,41 @@
 }
 
 body {
-    height: 100vh;
-    background: url(img/race_track.jpg) no-repeat center center/ cover;
-    display: flex;
-    justify-content: center;
     align-items: center;
-}
-
-.container {
-    width: 40%;
-    height: 250px;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 0 3px;
-}
-
-#timer {
-    width: 100%;
-    font-size: 72px;
-    text-align: center;
-    margin: 0 auto;
-    padding: 35px;
-}
-
-.buttons {
-    text-align: center;
-}
-
-button {
-    background-color: transparent; 
-    border: none;                  
-    padding: 0;                    
-    margin: 0 10px;
-}
-
-button i {
-    width: 80px;
-    height: 40px; 
-    font-size: 2rem;
-    color: white;
-    display: flex;           
+    background: url(img/todo.jpg) no-repeat center center/ cover;
+    display: flex;
+    height: 100vh;
     justify-content: center;
-    align-items: center;   
-    border-radius: 10px;      
-    padding: 6px;
-    cursor: pointer;        
 }
 
-#play {
+#add-task-container {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 3px;
+    display: flex;
+    padding: 20px 10px;
+    width: 350px;
+}
+
+input {
+    border-radius: 10px;
+    flex: 5;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+#add-task {
+    background-color: white;
+    border: green solid 2px;
+    color: green;
+    flex: 1;
+    font-size: 1.2rem;
+    padding: 5px;
+    transition: .3s;
+}
+
+#add-task:hover {
     background-color: green;
-}
-
-#pause {
-    background-color: orange;
-}
-
-#reset {
-    background-color: red;
+    color: white;
 }
