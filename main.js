@@ -1,39 +1,27 @@
-const addTask = document.getElementById('add-task');
-const taskContainer = document.getElementById('task-container');
-const inputTask = document.getElementById('input-task');
+function playNote(keyCode) {
+    const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${keyCode}"]`);
+    if (!audio) return; 
+    audio.currentTime = 0; 
+    audio.play();
+    key.classList.add('playing');
+}
 
-addTask.addEventListener('click', function(){
+function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    this.classList.remove('playing');
+}
 
-    if (inputTask.value === ''){
-        alert('Please Enter a Task');
-        return;
-    }
+const keys = document.querySelectorAll('.key');
 
-    let task = document.createElement('div'); 
-    task.classList.add('task');
-
-    let li = document.createElement('li');
-    li.innerText = `${inputTask.value}`;
-    task.appendChild(li);
-
-    let checkButton = document.createElement('button');
-    checkButton.innerHTML = '<i class="fa-solid fa-check"></i>';
-    checkButton.classList.add('checkTask');
-    task.appendChild(checkButton);
-
-    let deleteButton = document.createElement('button');
-    deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
-    deleteButton.classList.add('deleteTask');
-    task.appendChild(deleteButton);
-
-    taskContainer.appendChild(task);
-    inputTask.value = "";
-
-    checkButton.addEventListener('click', function(){
-        li.style.textDecoration = li.style.textDecoration === 'line-through' ? 'none' : 'line-through';
-        li.style.color = li.style.textDecoration === 'line-through' ? 'gray' : 'black';
+keys.forEach(key => {
+    key.addEventListener('transitionend', removeTransition);
+    key.addEventListener('click', function() {
+        const keyCode = this.getAttribute('data-key'); 
+        playNote(keyCode);
     });
-    deleteButton.addEventListener('click', function(e){
-        e.target.closest('.task').remove();
-    });
+});
+
+window.addEventListener('keydown', function(e) {
+    playNote(e.code);
 });

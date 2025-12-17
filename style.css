@@ -7,106 +7,49 @@
 
 body {
     align-items: center; 
-    background: url(img/todo.jpg) no-repeat center center/ cover;
+    background: url(img/audience.jpg) no-repeat center center/ cover;
     display: flex;
     justify-content: center;
     min-height: 100vh;
 }
 
-.app-wrapper {
-    background-color: rgba(255, 255, 255, 0.9); 
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3); 
-    display: flex;
-    flex-direction: column;
-    gap: 20px; 
-    max-width: 400px; 
-    min-height: 100px;
-    padding: 30px;
-    width: 100%;
+.keys {
+    display: flex;        
+    flex-wrap: wrap;      
+    align-items: center;  
+    justify-content: center; 
+    gap: 10px;       
 }
 
-header h1 {
-    color: #333;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-#add-task-container {
-    display: flex;
-    width: 100%;
-}
-
-input {
-    border-radius: 5px 0 0 5px; 
-    border: 1px solid #ddd;
-    flex: 1; 
-    font-size: 1rem;
-    outline: none;
-    padding: 10px;
-}
-
-#add-task {
-    background-color: #28a745;
-    border-radius: 0 5px 5px 0; 
-    border: none;
+.key {
+    background: rgba(0, 0, 0, 0.4); 
+    border-radius: 5px;
+    border: 4px solid black;
     color: white;
-    cursor: pointer;
+    cursor: pointer; 
+    font-size: 1.5rem;
+    margin: 1rem;
+    padding: 1rem .5rem;
+    text-align: center;
+    text-shadow: 0 0 5px black;
+    transition: all 0.07s ease-in-out; 
+    width: 100px;
+}
+
+.playing {
+    border-color: #ffc600;
+    box-shadow: 0 0 10px #ffc600;
+    transform: scale(1.1);
+}
+
+kbd {
+    display: block;
+    font-size: 40px;
+}
+
+.sound {
+    color: #ffc600;
     font-size: 1.2rem;
-    padding: 10px 20px;
-    transition: background 0.3s;
-}
-
-#add-task:hover {
-    background-color: #218838;
-}
-
-
-.task {
-    align-items: center; 
-    animation: fadeIn 0.3s ease; 
-    background-color: white;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    padding: 10px 0;
-}
-
-.task li {
-    flex: 1;
-    font-size: 1.1rem;
-    list-style: none;
-    padding-left: 10px;
-    word-break: break-all; 
-}
-
-.task button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    margin-left: 5px;
-    padding: 5px 10px;
-}
-
-.checkTask { 
-    color: #ffa500; 
-}
-
-.deleteTask { 
-    color: #ff4d4d; 
-}
-
-.checkTask:hover { 
-    color: #e69500; 
-    transform: scale(1.1); 
-}
-
-.deleteTask:hover { 
-    color: #cc0000; 
-    transform: scale(1.1); 
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
