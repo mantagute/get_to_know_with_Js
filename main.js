@@ -1,27 +1,29 @@
-function playNote(keyCode) {
-    const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
-    const key = document.querySelector(`.key[data-key="${keyCode}"]`);
-    if (!audio) return; 
-    audio.currentTime = 0; 
-    audio.play();
-    key.classList.add('playing');
+const secondHand = document.querySelector('.second-hand');
+const minHand = document.querySelector('.min-hand');
+const hourHand = document.querySelector('.hour-hand');
+
+function setDate() {
+    const now = new Date();
+
+    const seconds = now.getSeconds();
+    const secondsDegrees = ((seconds/60) * 360) + 90;
+
+    if(secondsDegrees === 90) {
+        secondHand.style.transition = 'none';
+    } else {
+        secondHand.style.transition = 'all 0.05s';
+    }
+    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+
+
+    const minutes = now.getMinutes();
+    const minutesDegrees = ((minutes/60) * 360) + 90;
+    minHand.style.transform = `rotate(${minutesDegrees}deg)`;
+
+    const hours = now.getHours();
+    const hoursDegrees = ((hours/12) * 360) + 90;
+    hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
 }
 
-function removeTransition(e) {
-    if (e.propertyName !== 'transform') return;
-    this.classList.remove('playing');
-}
-
-const keys = document.querySelectorAll('.key');
-
-keys.forEach(key => {
-    key.addEventListener('transitionend', removeTransition);
-    key.addEventListener('click', function() {
-        const keyCode = this.getAttribute('data-key'); 
-        playNote(keyCode);
-    });
-});
-
-window.addEventListener('keydown', function(e) {
-    playNote(e.code);
-});
+setInterval(setDate, 1000,);

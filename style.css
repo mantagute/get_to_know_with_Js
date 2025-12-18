@@ -6,48 +6,76 @@
 }
 
 html {
-    background: url(img/sunset.jpg) no-repeat center center/ cover;
     background-size: cover;
+    background: url(img/sunset.jpg) no-repeat center center/ cover;
     font-family: 'helvetica neue';
-    text-align: center;
     font-size: 10px;
+    text-align: center;
 }
 
 body {
-    margin: 0;
-    font-size: 2rem;
+    align-items: center;
     display: flex;
     flex: 1;
+    font-size: 2rem;
+    margin: 0;
     min-height: 100vh;
-    align-items: center;
 }
 
 .clock {
-    width: 30rem;
-    height: 30rem;
-    border: 20px solid white;
     border-radius: 50%;
-    margin: 50px auto;
-    position: relative;
-    padding: 2rem;
+    border: 20px solid white;
     box-shadow:
     0 0 0 4px rgba(0,0,0,0.1),
-    inset 0 0 0 3px orange,
+    inset 0 0 0 3px orangered,
     inset 0 0 10px orangered,
-    0 0 10px orangered
+    0 0 10px orangered;
+    height: 30rem;
+    margin: 50px auto;
+    padding: 2rem;
+    position: relative;
+    width: 30rem;
 }
 
 .clock-face {
-    position: relative;
-    width: 100%;
     height: 100%;
+    position: relative;
     transform: translateY(-3px); 
+    width: 100%;
 }
 
 .hand {
-    width: 50%;
+    background: white;
     height: 6px;
-    background: orangered;
     position: absolute;
     top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    width: 50%;
+    top: 50%;
+    right: 50%; 
+    transform-origin: 100%; 
 }
+
+.hour-hand {
+    width: 35%;
+    left: 15%;  
+    height: 8px;
+    background: rgba(255, 255, 255, 0.902);
+}
+
+.min-hand {
+    width: 50%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.902);
+}
+
+
+.second-hand {
+    width: 50%;
+    height: 2px; 
+    background: orangered; 
+}
+
