@@ -2,47 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hold Shift to Check Multiple Checkboxes</title>
-    <link rel="icon" href="https://fav.farm/🔥" />
+    <title>HTML Video Player</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
-    <main class="inbox">
-        <section class="item">
-            <input type="checkbox">
-            <p>This is an inbox layout.</p>
-        </section>
-        <section class="item">
-            <input type="checkbox">
-            <p>Check one item</p>
-        </section>
-        <section class="item">
-            <input type="checkbox">
-            <p>Hold down your Shift key</p>
-        </section>
-        <section class="item">
-            <input type="checkbox">
-            <p>Check a lower item</p>
-        </section>
-        <section class="item">
-            <input type="checkbox">
-            <p>Everything in between should also be set to checked</p>
-        </section>
-        <section class="item">
-            <input type="checkbox">
-            <p>Try to do it without any libraries</p>
-        </section>
-        <section class="item">
-            <input type="checkbox">
-            <p>Just regular JavaScript</p>
-        </section>
-        <section class="item">
-            <input type="checkbox">
-            <p>Good Luck!</p>
-        </section>
-        <section class="item">
-            <input type="checkbox">
-            <p>Don't forget to tweet your result!</p>
+
+    <main class="player">
+        <video class="player__video viewer" src="MEDIA/video.mp4"></video>
+
+        <section class="player__controls">
+            <div class="progress">
+                <div class="progress__filled"></div>
+            </div>
+            <button class="player__button toggle" title="Toggle Play">►</button>
+            <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+            <input type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
+            <button data-skip="-10" class="player__button">« 10s</button>
+            <button data-skip="25" class="player__button">25s »</button>
         </section>
     </main>
 
