@@ -43,15 +43,32 @@ body {
 }
 
 .player__button {
-    background: none;
+    background: rgba(255, 255, 255, 0.1); 
     border: 0;
     color: white;
     cursor: pointer;
     line-height: 1;
-    max-width: 50px;
-    outline: 0;
-    padding: 0;
+    max-width: 60px;
+    padding: 8px;
     text-align: center;
+    outline: 0;
+    border-radius: 4px; 
+    margin: 0 5px;
+    transition: all 0.2s ease; 
+    font-size: 15px;
+}
+
+
+.player__button:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: #ffc600;
+    transform: scale(1.1); 
+}
+
+.toggle {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffc600; 
 }
 
 .player__button:focus {
@@ -64,14 +81,17 @@ body {
 }
 
 .player__controls {
-    background: rgba(0,0,0,0.1);
-    bottom: 0;
     display: flex;
-    flex-wrap: wrap;
     position: absolute;
+    bottom: 0;
+    width: 100%;
     transform: translateY(100%) translateY(-5px);
     transition: all .3s;
-    width: 100%;
+    flex-wrap: wrap;
+    background: rgba(0,0,0,0.7); 
+    align-items: center; 
+    padding: 10px;
+
 }
 
 .player:hover .player__controls {
@@ -158,4 +178,41 @@ input[type=range]::-moz-range-thumb {
     border-radius: 50px;
     background: #ffc600;
     cursor: pointer;
+}
+
+input[name="volume"]::-webkit-slider-thumb {
+    background: #00d4ff; 
+}
+
+input[name="volume"]::-moz-range-thumb {
+    background: #00d4ff;
+}
+
+input[name="playbackRate"]::-webkit-slider-thumb {
+    background: #bada55; 
+}
+
+input[name="playbackRate"]::-moz-range-thumb {
+    background: #bada55;
+}
+
+.player__slider {
+    width: 100px;
+    height: 30px;
+}
+
+input[name="volume"]:hover::after {
+    content: ' Volume';
+    color: white;
+    font-size: 10px;
+    position: absolute;
+    margin-top: -35px;
+}
+
+input[name="playbackRate"]:hover::after {
+    content: ' Velocidade';
+    color: white;
+    font-size: 10px;
+    position: absolute;
+    margin-top: -35px;
 }
