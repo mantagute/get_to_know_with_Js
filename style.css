@@ -1,55 +1,80 @@
 html {
+    align-items: center;
+    background-size: cover;
+    background: url("img/oh-la-la.jpeg") center no-repeat;
     box-sizing: border-box;
-    background: #ffc600;
-    font-family: 'helvetica neue';
-    font-size: 20px;
-    font-weight: 200;
-    }
-
-body {
-    margin: 0;
+    display: flex;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
 }
-
-*, *:before, *:after {
+  *,
+  *:before,
+  *:after {
     box-sizing: inherit;
 }
 
-h1 {
-    margin-top: 0;
+svg {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    fill: white;
+    margin-bottom: 50px;
+    padding: 20px;
+    width: 200px;
 }
 
-.site-wrap {
-    max-width: 700px;
-    margin: 100px auto;
-    background: white;
-    padding: 40px;
-    text-align: justify;
+.wrapper {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    padding: 20px;
 }
 
-.align-left {
-    float: left;
-    margin-right: 20px;
+h2 {
+    font-weight: 200;
+    margin: 0;
+    text-align: center;
 }
 
-.align-right {
-    float: right;
-    margin-left: 20px;
+.plates {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
 }
 
-.slide-in {
-    opacity: 0;
-    transition: all .5s;
+.plates li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    font-weight: 100;
+    padding: 10px 0;
 }
 
-.align-left.slide-in {
-    transform: translateX(-30%) scale(0.95);
+.plates label {
+    cursor: pointer;
+    flex: 1;
 }
 
-.align-right.slide-in {
-    transform: translateX(30%) scale(0.95);
+.plates input {
+    display: none;
 }
 
-.slide-in.active {
-    opacity: 1;
-    transform: translateX(0%) scale(1);
+.plates input + label:before {
+    content: "⬜️";
+    margin-right: 10px;
+}
+
+.plates input:checked + label:before {
+    content: "🌮";
+}
+
+.add-items {
+    margin-top: 20px;
+}
+
+.add-items input {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    outline: 0;
+    padding: 10px;
 }
