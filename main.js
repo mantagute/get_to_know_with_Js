@@ -1,34 +1,43 @@
-function debounce(func, wait = 20, immediate = true) {
-    var timeout;
-    return function() {
-        var context = this, args = arguments;
-        var later = function() {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-        };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
+ // start with strings, numbers and booleans
+
+    // Let's say we have an array
+    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
+    // and we want to make a copy of it.
+
+    // You might think we can just do something like this:
+
+    // however what happens when we update that array?
+
+    // now here is the problem!
+
+    // oh no - we have edited the original array too!
+
+    // Why? It's because that is an array reference, not an array copy. They both point to the same array!
+
+    // So, how do we fix this? We take a copy instead!
+
+    // one way
+
+    // or create a new array and concat the old one in
+
+    // or use the new ES6 Spread
+
+    // now when we update it, the original one isn't changed
+
+    // The same thing goes for objects, let's say we have a person object
+
+    // with Objects
+    const person = {
+      name: 'Wes Bos',
+      age: 80
     };
-}
 
-const sliderImages = document.querySelectorAll('.slide-in');
+    // and think we make a copy:
 
-function checkSlide(e) {
-    sliderImages.forEach(sliderImage =>{
-        const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height/2;
-        const imageBottom = sliderImage.offsetTop + sliderImage.height;
-        const isHalfShown = slideInAt >sliderImage.offsetTop;
-        const isNotScrolledPast = window.scrollY < imageBottom;
+    // how do we take a copy instead?
 
-        if (isHalfShown && isNotScrolledPast) {
-            sliderImage.classList.add('active');
-        } 
-        else{
-            sliderImage.classList.remove('active');
-        }
-    });
-}
+    // We will hopefully soon see the object ...spread
 
-window.addEventListener('scroll', debounce(checkSlide));
+    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+
