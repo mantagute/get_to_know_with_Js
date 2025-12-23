@@ -1,14 +1,14 @@
-const pressed = [];
-const secretCode = 'zumbao';
-
-window.addEventListener('keyup', (e) => {
-    console.log(e.key);
-    pressed.push(e.key);
-    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
-    console.log(pressed);
-
-    if (pressed.join('').includes(secretCode)) {
-        console.log("DING DING");
-        cornify_add();
+function debounce(func, wait = 20, immediate = true) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
     }
-});
