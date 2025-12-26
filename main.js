@@ -1,29 +1,23 @@
-window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const triggers = document.querySelectorAll('a');
+const highlight = document.createElement('span');
+highlight.classList.add('highlight');
+document.body.append(highlight);
 
-const recognition = new SpeechRecognition();
-recognition.interimResults = true;
+function highlightLink() {
+    const linkCoords = this.getBoundingClientRect();
+    console.log(linkCoords);
 
-let p = document.createElement('p');
-const words = document.querySelector('.words');
-words.appendChild(p);
-
-recognition.addEventListener('result', e => {
-    const transcript = Array.from(e.results).map(result => result[0]).map(result => result.transcript).join('');
-
-    p.textContent = transcript;
-
-    if(e.results[0].isFinal){
-        p = document.createElement('p');
-        words.appendChild(p);
-    }
-    
-    if(transcript.includes('.unicorn')){
-        console.log('🦄🦄🦄🦄🦄🦄🦄🦄')
+    const coords = {
+        width: linkCoords.width,
+        height: linkCoords.height,
+        top: linkCoords.top + window.scrollY,
+        left: linkCoords.left + window.scrollX
     }
 
-    console.log(transcript);
-})
+    highlight.style.width = `${coords.width}px`;
+    highlight.style.height = `${coords.height}px`;
+    highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
 
-recognition.addEventListener('end', recognition.start);
+}
 
-recognition.start();
+triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
