@@ -1,33 +1,60 @@
-body {
-    margin: 0;
-    font-family: sans-serif;
-    background: url(img/the_bay.jpg) no-repeat center center/ cover ;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
+html {
+    box-sizing: border-box;
 }
 
-#bands {
-    list-style: inside square;
-    font-size: 20px;
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 10px;
+    background: #ffc600;
+}
+
+.photobooth {
     background: white;
-    width: 500px;
-    margin: auto;
-    padding: 0;
-    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+    max-width: 150rem;
+    margin: 2rem auto;
+    border-radius: 2px;
 }
 
-#bands li {
-    border-bottom: 1px solid #efefef;
-    padding: 20px;
+/*clearfix*/
+.photobooth:after {
+    content: '';
+    display: block;
+    clear: both;
 }
 
-#bands li:last-child {
-    border-bottom: 0;
+.photo {
+    width: 100%;
+    float: left;
 }
 
-a {
-    color: #ffc600;
-    text-decoration: none;
+.player {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width:200px;
 }
+
+/*
+    Strip!
+  */
+
+.strip {
+    padding: 2rem;
+}
+
+.strip img {
+    width: 100px;
+    overflow-x: scroll;
+    padding: 0.8rem 0.8rem 2.5rem 0.8rem;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    background: white;
+}
+
+.strip a:nth-child(5n+1) img { transform: rotate(10deg); }
+.strip a:nth-child(5n+2) img { transform: rotate(-2deg); }
+.strip a:nth-child(5n+3) img { transform: rotate(8deg); }
+.strip a:nth-child(5n+4) img { transform: rotate(-11deg); }
+.strip a:nth-child(5n+5) img { transform: rotate(12deg); }
