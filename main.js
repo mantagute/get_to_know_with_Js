@@ -1,36 +1,33 @@
-const triggers = document.querySelectorAll('.cool > li');
-const background = document.querySelector('.dropdownBackground');
-const nav = document.querySelector('.top');
+const slider = document.querySelector('.items');
 
-function handleEnter() {
-    this.classList.add('trigger-enter');
-    
-    setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
-    
-    background.classList.add('open');
+let isDown = false;
+let startX;
+let scrollLeft;
 
-    const dropdown = this.querySelector('.dropdown');
-    
-    const dropdownCoords = dropdown.getBoundingClientRect();
-    
-    const navCoords = nav.getBoundingClientRect();
+slider.addEventListener('mousedown', (e) =>{
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+})
 
-    const coords = {
-        height: dropdownCoords.height,
-        width: dropdownCoords.width,
-        top: dropdownCoords.top - navCoords.top,
-        left: dropdownCoords.left - navCoords.left,
-    };
+slider.addEventListener('mouseleave', () =>{
+    isDown = false;
+    slider.classList.remove('active');
+})
 
-    background.style.setProperty('width', `${coords.width}px`);
-    background.style.setProperty('height', `${coords.height}px`)
-    background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
-}
+slider.addEventListener('mouseup', () =>{
+    isDown = false;
+    slider.classList.remove('active');
+})
 
-function handleLeave() {
-    this.classList.remove('trigger-enter', 'trigger-enter-active');
-    background.classList.remove('open');
-}
+slider.addEventListener('mousemove', (e) =>{
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
 
-triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
-triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
+    const walk = (x - startX) * 3   ;
+
+    slider.scrollLeft = scrollLeft - walk;
+
+})
