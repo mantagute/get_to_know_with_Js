@@ -1,33 +1,53 @@
-const slider = document.querySelector('.items');
+let countdown;
+const timerDisplay = document.querySelector('.display__time-left');
+const endTime = document.querySelector('.display__end-time');
 
-let isDown = false;
-let startX;
-let scrollLeft;
+const buttons = document.querySelectorAll('[data-time]');
 
-slider.addEventListener('mousedown', (e) =>{
-    isDown = true;
-    slider.classList.add('active');
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-})
+function timer(seconds) {
+    clearInterval(countdown);
+    const now = Date.now();
+    const then = now + seconds * 1000; 
+    displayTimeLeft(seconds);
+    displayEndTime(then);
+    countdown = setInterval(() => {
+        const secondsLeft = Math.round((then - Date.now()) / 1000);
+        if (secondsLeft < 0){
+            clearInterval(countdown);
+            return;
+        }
+        displayTimeLeft(secondsLeft);
+    }, 1000)
+}
 
-slider.addEventListener('mouseleave', () =>{
-    isDown = false;
-    slider.classList.remove('active');
-})
+function displayTimeLeft(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainderSeconds = seconds % 60;
 
-slider.addEventListener('mouseup', () =>{
-    isDown = false;
-    slider.classList.remove('active');
-})
+    const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
 
-slider.addEventListener('mousemove', (e) =>{
-    if (!isDown) return;
+    document.title = display;
+
+    timerDisplay.textContent = display;
+}
+
+function displayEndTime(timestamp) {
+    const end = new Date(timestamp);
+    const hour = end.getHours();
+    const adjustedHour = hour > 12 ? hour - 12 : hour
+    const minutes = end.getMinutes();
+    endTime.textContent = `Be back at ${adjustedHour}:${minutes < 10 ? '0' : ''}${minutes}`;
+}
+
+function startTimer() {
+    const seconds = parseInt(this.dataset.time);
+    timer(seconds);
+}
+
+buttons.forEach(button => button.addEventListener('click', startTimer));
+document.customForm.addEventListener('submit', function(e){
     e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-
-    const walk = (x - startX) * 3   ;
-
-    slider.scrollLeft = scrollLeft - walk;
-
+    const minutes = this.minutes.value;
+    timer(minutes * 60)
+    this.reset();
 })

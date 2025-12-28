@@ -1,70 +1,82 @@
 html {
     box-sizing: border-box;
-    background: url('img/sunset.jpg') fixed;
-    background-size: cover;
+    font-size: 10px;
+    background: #8E24AA;
+    background: linear-gradient(45deg,  #42a5f5 0%,#478ed1 50%,#0d47a1 100%);
 }
 
-*, *:before, *:after {
+  *, *:before, *:after {
     box-sizing: inherit;
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: sans-serif;
-    font-size: 20px;
     margin: 0;
+    text-align: center;
+    font-family: 'Inconsolata', monospace;
 }
 
-.items {
-    height: 800px;
-    padding: 100px;
-    width: 100%;
-    border: 1px solid white;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    user-select: none;
+.display__time-left {
+    font-weight: 100;
+    font-size: 20rem;
+    margin: 0;
+    color: white;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.05);
+}
+
+.timer {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.timer__controls {
+    display: flex;
+}
+
+.timer__controls > * {
+    flex: 1;
+}
+
+.timer__controls form {
+    flex: 1;
+    display: flex;
+}
+
+.timer__controls input {
+    flex: 1;
+    border: 0;
+    padding: 2rem;
+}
+
+.timer__button {
+    background: none;
+    border: 0;
     cursor: pointer;
-    transition: all 0.2s;
-    transform: scale(0.98);
-    will-change: transform;
-    position: relative;
-    background: rgba(255,255,255,0.1);
-    font-size: 0;
-    perspective: 500px;
+    color: white;
+    font-size: 2rem;
+    text-transform: uppercase;
+    background: rgba(0,0,0,0.1);
+    border-bottom: 3px solid rgba(0,0,0,0.2);
+    border-right: 1px solid rgba(0,0,0,0.2);
+    padding: 1rem;
+    font-family: 'Inconsolata', monospace;
 }
 
-.items.active {
-    background: rgba(255,255,255,0.3);
-    cursor: grabbing;
-    cursor: -webkit-grabbing;
-    transform: scale(1);
+.timer__button:hover,
+.timer__button:focus {
+    background: rgba(0,0,0,0.2);
+    outline: 0;
 }
 
-.item {
-    width: 200px;
-    height: calc(100% - 40px);
-    display: inline-flex;
+.display {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 80px;
-    font-weight: 100;
-    color: rgba(0,0,0,0.15);
-    box-shadow: inset 0 0 0 10px rgba(0,0,0,0.15);
 }
 
-.item:nth-child(9n+1) { background: dodgerblue;}
-.item:nth-child(9n+2) { background: goldenrod;}
-.item:nth-child(9n+3) { background: paleturquoise;}
-.item:nth-child(9n+4) { background: gold;}
-.item:nth-child(9n+5) { background: cadetblue;}
-.item:nth-child(9n+6) { background: tomato;}
-.item:nth-child(9n+7) { background: lightcoral;}
-.item:nth-child(9n+8) { background: darkslateblue;}
-.item:nth-child(9n+9) { background: rebeccapurple;}
-
-.item:nth-child(even) { transform: scaleX(1.31) rotateY(40deg); }
-.item:nth-child(odd) { transform: scaleX(1.31) rotateY(-40deg); }
+.display__end-time {
+    font-size: 4rem;
+    color: white;
+}
